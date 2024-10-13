@@ -35,7 +35,7 @@ const todoList = () => {
       // Format the To-Do list here, and return the output string
       // as per the format given above.
       const formattedTodos= list.map((todo)=>{
-        let isCompleted=''
+        let isCompleted=' '
         if(todo.completed){
             isCompleted='x'
         }
@@ -43,7 +43,7 @@ const todoList = () => {
             return `[${isCompleted}] ${todo.title}`
         }
         else{
-            return `[${isCompleted}] ${todo.title} ${todo.dueDate} `
+            return `[${isCompleted}] ${todo.title} ${todo.dueDate}`
         }
 
 
