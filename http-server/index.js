@@ -13,6 +13,7 @@ const fs = require("fs");
 let homeContent = "";
 let projectContent = "";
 let formContent='';
+let exampleContent='';
 
 fs.readFile("home.html", (err, home) => {
   if (err) {
@@ -33,6 +34,12 @@ fs.readFile("registration.html", (err, form) => {
     }
     formContent = form;
   });
+  fs.readFile("example.html", (err, form) => {
+    if (err) {
+      throw err;
+    }
+    exampleContent = form;
+  });
 http
   .createServer((request, response) => {
     let url = request.url;
@@ -44,6 +51,10 @@ http
         break;
     case '/registration':
         response.write(formContent);
+        response.end();
+        break;
+        case '/example':
+        response.write(exampleContent);
         response.end();
         break;
       default:
